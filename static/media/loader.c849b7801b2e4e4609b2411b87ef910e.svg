@@ -1,0 +1,16 @@
+<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.7051 5.79L18.9951 3.5H10.9951V11.5L13.2951 9.2C15.2651 10.66 16.5451 12.98 16.5451 15.62C16.5451 16.93 16.2251 18.16 15.6651 19.25C17.9951 17.73 19.5451 15.11 19.5451 12.12C19.5451 9.6 18.4351 7.35 16.7051 5.79Z" fill="url(#paint0_diamond_545_1599)"/>
+<path d="M7.45508 9.38C7.45508 8.07 7.77508 6.84 8.33508 5.75C5.99508 7.27 4.45508 9.89 4.45508 12.88C4.45508 15.4 5.55508 17.65 7.29508 19.21L4.99508 21.5H12.9951V13.5L10.6951 15.8C8.73508 14.34 7.45508 12.02 7.45508 9.38Z" fill="url(#paint1_diamond_545_1599)"/>
+<defs>
+<radialGradient id="paint0_diamond_545_1599" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(5.46182 1.06091) rotate(52.9797) scale(24.7524 20.2625)">
+<stop stop-color="#FFE2A4"/>
+<stop offset="0.631329" stop-color="#FFB81F"/>
+<stop offset="1" stop-color="#FFE2A4"/>
+</radialGradient>
+<radialGradient id="paint1_diamond_545_1599" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(5.46182 1.06091) rotate(52.9797) scale(24.7524 20.2625)">
+<stop stop-color="#FFE2A4"/>
+<stop offset="0.631329" stop-color="#FFB81F"/>
+<stop offset="1" stop-color="#FFE2A4"/>
+</radialGradient>
+</defs>
+</svg>
