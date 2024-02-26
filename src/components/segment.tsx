@@ -282,7 +282,7 @@ const Segment = () => {
       SetStatus(Status.Loader);
       if(currency === Currency.Split) {
         if((await allowanceHook(account) as number) < amount) {
-          SetNotification('APPROVE YOUR $SPLIT TOKENS');
+          SetNotification('APPROVE YOUR $LGP TOKENS');
           await approveHook();
         }
       }
@@ -378,7 +378,7 @@ const Segment = () => {
                 onClick={() => handlePlay()} 
                 disabled={status === Status.Loader}
               >
-                play
+                Play
               </button>
             </div>
             <div className="segment">
@@ -438,7 +438,7 @@ const Segment = () => {
               </div>
               <div className="segment__amount">
                 <div className="segment__title">
-                  BID AMOUNT (${currency})
+                  BID AMOUNT (<span className="segment__title_span">${currency}</span>)
                 </div>
                 <div className="segment__bid">
                   <input

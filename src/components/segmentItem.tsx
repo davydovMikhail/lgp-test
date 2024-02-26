@@ -36,7 +36,7 @@ const SegmentItem = (props: ISegment, index: number) => {
             className="table__item" 
             key={index}
             style={{
-                background: (index + 1) % 2 === 1 ? '#1A1A1A' : 'transparent'
+                background: (index + 1) % 2 === 1 ? 'rgba(255, 255, 255, 0.05)' : 'transparent'
             }}
         >
             { props.result ? 
