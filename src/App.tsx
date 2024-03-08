@@ -67,22 +67,7 @@ function App() {
           <div className="header">
             <div className="header__left">
               <img src={Logo} className="header__logo" />
-              {/* <div className="switcher">
-                <div className="toggle-pill-dark">
-                  <input 
-                    type="checkbox" 
-                    id="pill4"
-                    name="check"
-                    checked={advanced}
-                    onChange={advancedHandler}
-                    disabled={status === Status.Loader}
-                  />
-                  <label htmlFor="pill4"></label>
-                </div>
-                <div className="switcher__title">
-                  advanced mode
-                </div>
-              </div> */}
+              
             </div>
             <div className="header__right">
               <div 

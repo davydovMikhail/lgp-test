@@ -16,10 +16,10 @@ const Footer = () => {
                 <a target="_blank" href="https://gitbook.io/docs/" style={{marginRight: "8px"}}>
                     <img src={wp} alt="wp"/>
                 </a>
-                <a target="_blank" href="https://twitter.com/" style={{marginRight: "8px"}}>
+                <a target="_blank" href="https://twitter.com/luckygapcasino" style={{marginRight: "8px"}}>
                     <img src={x} alt="x"/>
                 </a>
-                <a target="_blank" href="https://t.me/">
+                <a target="_blank" href="https://t.me/luckygapcasino">
                     <img src={tg} alt="tg"/>
                 </a>
             </div>
