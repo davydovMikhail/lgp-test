@@ -13,7 +13,7 @@ const Footer = () => {
                 Copyright 2023. LGP CASINO. All Rights Reserved.
             </div> */}
             <div className="footer__links">
-                <a target="_blank" href="https://gitbook.io/docs/" style={{marginRight: "8px"}}>
+                <a target="_blank" href="https://lgp.gitbook.io/lucky-gap-casino/" style={{marginRight: "8px"}}>
                     <img src={wp} alt="wp"/>
                 </a>
                 <a target="_blank" href="https://twitter.com/luckygapcasino" style={{marginRight: "8px"}}>
