@@ -1,4 +1,3 @@
-import { useEffect } from "react"
 import start from "../img/start.svg";
 import connect from "../img/connect.svg";
 import loader from "../img/loader.svg";
@@ -7,23 +6,13 @@ import lost from "../img/lost.svg";
 import wallet from "../img/wallet.svg";
 import Girl from "../img/girl.png";
 import { useTypedSelector } from '../storeHooks/useTypedSelector';
-import { Currency } from "../types/main";
-import { useActions } from '../storeHooks/useActions';
-import { useGetMaxEtherPayout } from "../hooks/useGetMaxEtherPayout";
-import { useGetMaxTokenPayout } from "../hooks/useGetMaxTokenPayout"; 
-import { useGetEtherBal } from "../hooks/useGetEtherBal";
-import { useGetTokenBal } from "../hooks/useGetTokenBal"; 
-import { useGetTotalSegments } from "../hooks/useGetTotalSegments";
-import { useEthers } from "@usedapp/core";
 import { Status } from "../types/main";
 
 const Info = () => {
-    const { currency, notification, maxEthPayout, maxSplitPayout, ethBalance, splitBalance, status } = useTypedSelector(state => state.main);
-    const { SetEthPayout, SetSplitPayout, SetEthBal, SetSplitBal, SetTotalSegments } = useActions();
-    const { account } = useEthers();
+    const { address, notification, status } = useTypedSelector(state => state.main);
 
     function getIcon() {
-        if(!account) {
+        if(!address) {
             return connect
         } else if (status === Status.Fail) {
             return lost;
@@ -37,46 +26,12 @@ const Info = () => {
     }
 
     function maxPayout() {
-        return Currency.Ether === currency ? maxEthPayout.toFixed(5) : maxSplitPayout.toFixed(0);
+        return "10500000"
     }
 
     function balance() {
-        return Currency.Ether === currency ? ethBalance.toFixed(5) : splitBalance.toFixed(0);
+        return "0";
     }
-
-    const totalSegmentsHook = useGetTotalSegments();
-    const maxPayoutEtherHook = useGetMaxEtherPayout();
-    const maxPayoutTokenHook = useGetMaxTokenPayout();
-    const balSplitHook = useGetTokenBal();
-    const balEtherHook = useGetEtherBal();
-    useEffect(() => {
-        const fetchData = async () => {
-            const maxEther = await maxPayoutEtherHook(); 
-            const maxToken = await maxPayoutTokenHook(); 
-            SetEthPayout(maxEther as number);
-            SetSplitPayout(maxToken as number);
-        }
-        fetchData().catch(console.error);
-    },[]);
-    useEffect(() => {
-        const fetchData = async () => {
-            const totalSegments = await totalSegmentsHook();
-            SetTotalSegments(totalSegments);
-        }
-        fetchData().catch(console.error);
-    },[]);
-
-    useEffect(() => {
-        const fetchData = async () => {
-            if(account) {
-                const balanceSplit = await balSplitHook(account as string);   
-                const balanceEther = await balEtherHook(account as string);   
-                SetEthBal(balanceEther as number);
-                SetSplitBal(balanceSplit as number);
-            }
-        }
-        fetchData().catch(console.error);
-    }, [account]);
 
     return (
         <div className="info">
@@ -88,13 +43,13 @@ const Info = () => {
                     Maximum payout:
                 </div>
                 <div className="info__maxinfo">
-                    {maxPayout()} ${currency}
+                    {maxPayout()} $LGP
                 </div>
             </div>
             <div className="info__text">
                 <img style={{marginRight: "12px"}} src={wallet} alt="" />
                 <div>
-                    balance: {balance()} ${currency}
+                    balance: {balance()} $LGP
                 </div>
             </div>
             <div 
@@ -102,7 +57,7 @@ const Info = () => {
             >
                 <img style={{marginRight: "12px"}} src={getIcon()} alt="" />
                 <div>
-                    {account ? notification : "connect your wallet"}
+                    {address ? notification : "connect your wallet"}
                 </div>
             </div>
         </div>

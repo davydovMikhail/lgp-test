@@ -1,35 +1,57 @@
+import { useEffect } from 'react'
 import Logo from "./img/logo.svg";
 import Person from "./img/person.svg";
 import Info from './components/info';
 import Segment from './components/segment';
 import Table from './components/table';
 import Tabs from './components/tabs';
-import Pagination from './components/pagination';
 import Footer from './components/footer';
-import { useEthers } from "@usedapp/core";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import { useTypedSelector } from './storeHooks/useTypedSelector';
-import { Status } from './types/main';
-import { useClaim } from './hooks/useClaim';
 import { toast } from "react-toastify";
-import { useActions } from './storeHooks/useActions';
-import { useGetTokenBal } from "./hooks/useGetTokenBal";
+import { useActions } from "./storeHooks/useActions";
+declare const window: any;
 
 function App() {
-  const { status, advanced, splitBalance } = useTypedSelector(state => state.main);
-  const { SetSplitBal, SetNotification, SetStatus, SetAdvanced } = useActions();
-  const { activateBrowserWallet, account } = useEthers();
+  const { address } = useTypedSelector(state => state.main);
+  const { SetAddress } = useActions();
   
-  const advancedHandler = () => {
-    SetAdvanced(!advanced)
+  const getProvider = () => {
+    if ('phantom' in window) {
+      const provider: any = window.phantom?.solana;
+
+      if (provider?.isPhantom) {
+        return provider;
+      }
+    }
+    window.open('https://phantom.app/', '_blank');
+  };
+
+  let provider = getProvider();
+
+  useEffect(() => {
+    if(provider) {
+        provider.on("connect", () => {
+          SetAddress(provider.publicKey.toString());
+        });
+        provider.on("disconnect", () => {
+          SetAddress(null);
+        });
+    }
+  }, [provider]);
+
+  async function activateBrowserWallet() {
+    try {
+        await provider.connect();
+    } catch (err) {
+        window.open('https://phantom.app/', '_blank');
+        console.log(err);
+    }
   }
 
-  const claimHook = useClaim();
-  const balSplitHook = useGetTokenBal();
-
   async function handleClaim() {
-    if (!account) {
+    if (!address) {
         toast.info('FIRST CONNECT YOUR WALLET', {
             position: "bottom-center",
             autoClose: 1000,
@@ -40,24 +62,14 @@ function App() {
         });        
         return;
     }
-    if (splitBalance > 0) {
-        toast.info('YOU HAVE ALREADY RECEIVED TEST TOKENS', {
-            position: "bottom-center",
-            autoClose: 1000,
-            hideProgressBar: true,
-            pauseOnHover: false,
-            draggable: true,
-            theme: "dark",
-        });
-        return;
-    }
-    SetNotification("GETTING TOKENS");
-    SetStatus(Status.Loader);
-    await claimHook();
-    const balSplit = await balSplitHook(account as string);   
-    SetSplitBal(balSplit as number);
-    SetNotification("TOKENS RECEIVED");
-    SetStatus(Status.Won);
+    toast.info('CASINO WILL GO LIVE ON MARCH 25TH 12:00', {
+      position: "bottom-center",
+      autoClose: 1000,
+      hideProgressBar: true,
+      pauseOnHover: false,
+      draggable: true,
+      theme: "dark",
+    });
 }
 
   return (
@@ -78,10 +90,10 @@ function App() {
                 Claim Test
                 </div> 
               </div>
-              {account? <div className="button__size button__transparent">
+              {address? <div className="button__size button__transparent">
                           <img style={{marginRight: "10px"}} src={Person} alt="Person" />
                           <div>
-                          {account?.slice(0, 5)}...{account?.slice(-2)}
+                          {address?.slice(0, 5)}...{address?.slice(-2)}
                           </div>
                         </div> :
                         <div style={{cursor: "pointer"}}  onClick={() => activateBrowserWallet()} className="button__size button__style">
@@ -101,9 +113,6 @@ function App() {
         <div className="table-wrapper">
             <Tabs />
             <Table />
-            <div className="pagination-wrapper">
-              <Pagination />
-            </div>
         </div>
         <Footer />
       </main>

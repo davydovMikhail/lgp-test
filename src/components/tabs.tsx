@@ -1,16 +1,14 @@
 import Qurtred from "../img/qurtred.svg";
 import Qurtbrown from "../img/qurtbrown.svg";
-import { useTypedSelector } from '../storeHooks/useTypedSelector';
 
 const Tabs = () => {
-    const { totalSegments } = useTypedSelector(state => state.main);
     
     return (
         <div className="tabs">
               <div className="tabs__tab tabs__active">
                 <img className="tabs__icon" src={Qurtred} alt="" />
                 <div className="tabs__white">
-                  total games (<span className="tabs__span">{totalSegments}</span>)
+                  total games (<span className="tabs__span">0</span>)
                 </div>
               </div>
               <div className="tabs__tab tabs__default">

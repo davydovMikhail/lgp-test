@@ -1,10 +1,6 @@
 
-import { useTypedSelector } from '../storeHooks/useTypedSelector';
-import SegmentItem from './segmentItem';
 
 const Table = () => {
-    const { segmentGames } = useTypedSelector(state => state.main);
-    
     return (
         <div className="table">
             <div className="table__top">
@@ -24,7 +20,6 @@ const Table = () => {
                   Random number
                 </div>
             </div> 
-                {segmentGames.map((block, index) => SegmentItem(block, index)) }
         </div>
     );
   };
