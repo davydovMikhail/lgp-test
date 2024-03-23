@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.2914b72f.css",
-    "main.js": "/static/js/main.5b823bcd.js",
+    "main.js": "/static/js/main.fbf6e75c.js",
     "static/media/sphere1.png": "/static/media/sphere1.f20ad410aea3395b4342.png",
     "static/media/sphere2.png": "/static/media/sphere2.19d2ac614d70a3f5e0d4.png",
     "static/media/logo.svg": "/static/media/logo.d271e0d1e730704d5935beebf17fe3e5.svg",
@@ -40,7 +40,6 @@
     "static/media/bg2.svg": "/static/media/bg2.1431a28804be807c50fb.svg",
     "static/media/wp.svg": "/static/media/wp.b1c563111af649a201991a8c5054ec5b.svg",
     "static/media/won.svg": "/static/media/won.0bc7f3631e7f7ec6b60016d7cfaa1070.svg",
-    "static/media/splitcur.svg": "/static/media/splitcur.af6bed4d0fdec7efa0e6f7ea73ce34a2.svg",
     "static/media/loader.svg": "/static/media/loader.c849b7801b2e4e4609b2411b87ef910e.svg",
     "static/media/qurtbrown.svg": "/static/media/qurtbrown.7cb6ddc6a0f42993e2743290168212f2.svg",
     "static/media/qurtred.svg": "/static/media/qurtred.e86b5da4549b3aeb87c0896c1c834b9a.svg",
@@ -51,15 +50,12 @@
     "static/media/person.svg": "/static/media/person.28f34568935747a725e2b51f1d10f61b.svg",
     "index.html": "/index.html",
     "static/media/miniX.svg": "/static/media/miniX.31d43de9bbb4be7bb1b79be7983517d9.svg",
-    "static/media/ethcur.svg": "/static/media/ethcur.ff1e3088ed15020a6446a0dd2bb713d8.svg",
     "static/media/lost.svg": "/static/media/lost.682ebdf64860cf1e7d3316bf62e278dd.svg",
-    "static/media/copy.svg": "/static/media/copy.c6139d27598377bc410ab0a7cd4fef31.svg",
-    "static/media/chevron.svg": "/static/media/chevron.7109b6d1197380e8863c2980698dbf3b.svg",
     "main.2914b72f.css.map": "/static/css/main.2914b72f.css.map",
-    "main.5b823bcd.js.map": "/static/js/main.5b823bcd.js.map"
+    "main.fbf6e75c.js.map": "/static/js/main.fbf6e75c.js.map"
   },
   "entrypoints": [
     "static/css/main.2914b72f.css",
-    "static/js/main.5b823bcd.js"
+    "static/js/main.fbf6e75c.js"
   ]
 }
