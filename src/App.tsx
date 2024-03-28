@@ -62,7 +62,7 @@ function App() {
         });        
         return;
     }
-    toast.info('CASINO WILL GO LIVE ON MARCH 25TH 12:00', {
+    toast.info('CASINO WILL GO LIVE ON MARCH 29TH 22:00 UTC', {
       position: "bottom-center",
       autoClose: 1000,
       hideProgressBar: true,
